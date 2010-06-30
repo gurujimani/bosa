@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%= stylesheet_link_tag 'application', 'jquery-ui-1.7.2.custom','tableSorter' %>
+<%= stylesheet_link_tag 'formtastic', 'formtastic_changes' %>
+
+<!--[if IE]>
+    <style type="text/css">
+      * html body{ width: expression( document.documentElement.clientWidth < 900 ? '900px' : '100%' ); }
+      body {behavior: url(<%= stylesheet_path "csshover.htc" %>);}
+    </style>
+<![endif]-->
+
+<title><%= @title %></title>
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrapper">
+  <div id="top-menu">
+    <div id="loggedas">
+      
+   </div>
+  </div>
+
+  <!--header -->
+  <div id="header">
+    
+    <h1><a><%= @title %></a></h1>
+
+          <!-- menu -->
+    <div  id="main-menu">
+    
+    </div>
+  </div>
+  <%= tag('div', {:id => 'main', :class => (has_content?(:sidebar) ? '' : 'nosidebar')}, true) %>
+		<!-- content-wrap starts here -->
+    <div id="sidebar">
+      <%= yield :sidebar  %>
+    </div>
+
+    <div id="content">
+      <% flash.each do |key, msg| %>
+        <%= content_tag :div, msg, :class => ["flash ", key] %>
+      <% end %>
+      <%= yield %>
+    </div>
+		<!-- content-wrap ends here -->
+
+
+    <!--footer starts here-->
+    <div id="footer">
+
+            <p>
+            &copy; 2006 <strong>N.Subramanian</strong> |
+            Design by: <a href="http://www.google.com">Mani</a> |
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <a href="index.html">Home</a>&nbsp;|&nbsp;
+    <a href="index.html">Sitemap</a>&nbsp;|&nbsp;
+    <a href="index.html">RSS Feed</a>
+    </p>
+
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+</body>
+</html>

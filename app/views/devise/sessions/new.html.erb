@@ -1,0 +1,18 @@
+<h2>Sign in</h2>
+<%= devise_error_messages! %>
+
+<%= semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  
+  <% f.inputs do %>
+    <%= f.input :username %>
+    <%= f.input :password %>
+  
+    <% if devise_mapping.rememberable? -%>
+      <%= f.input :remember_me, :as  => :boolean %>
+    <% end -%>
+
+    <%= f.submit "Sign in"  %>
+  <% end %>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %> 
