@@ -1,0 +1,211 @@
+/* Start Forms */
+form fieldset {
+  width: auto;
+  font-size: 10pt;
+  background-color: lightGray }
+form fieldset legend {
+  font-family: Georgia;
+  font-size: 10pt;
+  color: BLUE;
+  background-color: #F6F6F6}
+form label,
+form input,
+form select,
+form select option,
+form textarea {
+  font-family: Georgia;
+  font-size: 10pt;
+  font-color: #000; }
+form input,
+form select,
+form file,
+form textarea {
+  border-style:groove;
+  border-color: blue;
+  border-width:1px;
+  /*border-top: 2px solid #999999;
+  border-left: 2px solid #999999;
+  border-right: 2px solid #cccccc;
+  border-bottom: 2px solid #cccccc;*/
+  font-size: 10pt; }
+form input[type=text],
+form input[type=password],
+form textarea {
+  width: 20em; }
+form select {
+  height: 1.5em; }
+form input[type=submit],
+form input[type=button] {
+  background: blue;
+  color: #fff;
+  border-top: 2px solid #55c649;
+  border-left: 2px solid #55c649;
+  border-right: 2px solid #006000;
+ /* border-bottom: 2px solid #006000; */
+  margin: 0 5px; }
+form input[type=submit][value=cancel] {
+  border-top: 2px solid #e68582;
+  border-left: 2px solid #e68582;
+  /*border-bottom: 2px solid #801f1c;*/
+  border-right: 2px solid #801f1c;
+  color: #ffb8b5;
+  background: #b3524f; }
+form div.fieldWithErrors {
+  display: inline; }
+  form div.fieldWithErrors input, form div.fieldWithErrors select, form div.fieldWithErrors textarea {
+    border-top: 2px solid #8F0600;
+    border-left: 2px solid #8F0600;
+    border-bottom: 2px solid #BB4036;
+    border-right: 2px solid #BB4036;
+    line-height: 1.5em; }
+form div.check-box-field,
+form div.check-box-fields,
+form div.date-field,
+form div.datetime-field,
+form div.file-field,
+form div.password-field,
+form div.radio-field,
+form div.radio-fields,
+form div.select-field,
+form div.time-field,
+form div.text-field,
+form div.textarea-field,
+form div.collection-select,
+form div.issue-label,
+form div.calendar_date_select-field,
+form div.time-zone-select-field,
+form div.submit-field {
+  float: left;
+  clear: both;
+  margin: 0;
+  padding: 10px;
+/*  border-bottom: 1px solid #cccccc; */
+  font-size: 12pt; }
+  form div.check-box-field div.input,
+  form div.check-box-fields div.input,
+  form div.date-field div.input,
+  form div.datetime-field div.input,
+  form div.time-field div.input,
+  form div.file-field div.input,
+  form div.password-field div.input,
+  form div.radio-field div.input,
+  form div.radio-fields div.input,
+  form div.select-field div.input,
+  form div.text-field div.input,
+  form div.calendar_date_select-field div.input,
+  form div.textarea-field div.input,
+  form div.issue-label div.input,
+  form div.projects div.input,
+  form div.time-zone-select-field div.input,
+  form div.submit-field div.input {
+    float: left;
+    clear: right;
+    text-align: left;
+    width: 20em;
+    padding-left: 5px; }
+  form div.check-box-field label,
+  form div.check-box-fields label,
+  form div.date-field label,
+  form div.datetime-field label,
+  form div.time-field label,
+  form div.file-field label,
+  form div.password-field label,
+  form div.radio-field label,
+  form div.radio-fields label,
+  form div.select-field label,
+  form div.calendar_date_select-field label,
+  form div.text-field label,
+  form div.textarea-field label,
+  form div.issue-label label,
+  form div.projects label,
+  form div.time-zone-select-field label,
+  form div.submit-field label {
+    float: left;
+    display: block;
+    width: 12em;
+    padding-right: 10px;
+    text-align: right; }
+form div.check-box-field label span.help,
+form div.check-box-fields label span.help,
+form div.date-field label span.help,
+form div.datetime-field label span.help,
+form div.time-field label span.help,
+form div.file-field label span.help,
+form div.password-field label span.help,
+form div.radio-field label span.help,
+form div.radio-fields label span.help,
+form div.select-field label span.help,
+form div.text-field label span.help,
+form div.textarea-field label span.help,
+form div.issue-label label span.help,
+form div.projects label span.help,
+form div.calendar_date_select-field label span.help,
+form div.time-zone-select-field label span.help,
+form div.submit-field label span.help {
+      display: block;
+      font-size: 60%;
+      font-weight: normal;
+      margin-top: 5px;
+      line-height: 100%; }
+form div.submit-field {
+  border: none; }
+form div.submit-field div.input {
+  font-size: 12pt;
+  margin-left: 12em; }
+form div.check-box-fields div.input label,
+form div.radio-fields div.input label {
+  clear: left;
+  width: auto;
+  font-size: 80%; }
+form div.required {
+  float: left;
+  line-height: 1.4em; }
+  form div.required label, form div.required p, form div.required span {
+    color: #944;
+    font-weight: bold; }
+  form div.required label span.help {
+    margin-top: 0; }
+
+/* Added for projects partial */
+form div#projects{
+  float: left;
+  clear: both;
+  margin: 0;
+  padding: 10px;
+  /*border-bottom: 1px solid #cccccc;*/
+  font-size: 12pt; }
+
+form div#projects div.input {
+    float: left;
+    clear: right;
+    text-align: left;
+    width: 20em;
+    padding-left: 5px; }
+form div#projects label {
+    float: left;
+    display: block;
+    width: 12em;
+    padding-right: 10px;
+    text-align: right; }
+
+form div#sites{
+  float: left;
+  clear: both;
+  margin: 0;
+  padding: 10px;
+  /*border-bottom: 1px solid #cccccc;*/
+  font-size: 12pt; }
+form div#sites div.input {
+    float: left;
+    clear: right;
+    text-align: left;
+    width: 20em;
+    padding-left: 5px; }
+  
+  form div#sites label {
+    float: left;
+    display: block;
+    width: 12em;
+    padding-right: 10px;
+    text-align: right; }
+		/* End Forms */

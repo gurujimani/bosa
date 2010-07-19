@@ -8,7 +8,7 @@ gem 'rails', '3.0.0.beta4'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'formtastic', :git => 'http://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 gem 'devise', '1.1.rc1'
-gem 'tabletastic'
+#gem 'talbletastic', '0.2.0.pre3', :git  => 'git://github.com/jgdavey/tabletastic.git'
 gem 'validation_reflection'
 gem 'to_xls'
 gem 'cancan'
@@ -17,14 +17,14 @@ gem 'pdfkit'
 
 # Gems for Cucumber
 
-gem 'capybara'
-gem 'database_cleaner'
-gem 'cucumber-rails'
-gem 'cucumber'
-gem 'rspec', '2.0.0.beta.14'
-gem 'rspec-rails', '2.0.0.beta.14.2'
-gem 'spork'
-gem 'launchy'
+#gem 'capybara'
+#gem 'database_cleaner'
+#gem 'cucumber-rails'
+#gem 'cucumber'
+#gem 'rspec', '2.0.0.beta.14'
+#gem 'rspec-rails', '2.0.0.beta.14.2'
+#gem 'spork'
+#gem 'launchy'
 
 
 # Use unicorn as the web server
