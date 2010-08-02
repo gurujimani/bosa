@@ -1,10 +1,15 @@
 Bosa::Application.routes.draw do |map|
   
   devise_for :users, :path_names  => { :sign_up  => "register" }
+  resources :customers do 
+    resources :addresses
+  end
+  resources :agents
+  
   #match "login"  => 'devise/sessions#new'
     
-  root :to  => "home#index"
-  resources :customers
+  #root :to  => "home#index"
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

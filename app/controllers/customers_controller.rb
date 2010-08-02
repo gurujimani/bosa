@@ -7,35 +7,63 @@ class CustomersController < ApplicationController
     end
   end
   
+  def show
+    @customer = Customer.find(params[:id])
+    
+    if @customer
+      @addresses = @customer.addresses.all
+      flash[:notice] = "No address found for this customer" if @addresses.empty?
+    end
+  end
+  
   def new
     @customer = Customer.new    
+    @customer.dob = Time.now
   end
   
   def create
     @customer = Customer.new(params[:customer])
     
-    if @customer.save
-      flash[:notice] = "New customer record successfully created..."
-      redirect_to(customers_path)
-    else
-      render :action => 'new'
+    respond_to do |format|
+      if @customer.save
+        flash[:notice] = "New customer record successfully created..."
+        format.html { redirect_to(@customer)  }
+      else
+        flash.now[:error] = "Unable to create the record."
+        format.html { render :action => 'new' }
+      end
     end
   end
   
-  def show
+  def edit
     @customer = Customer.find(params[:id])
   end
   
-  def edit
-    
-  end
-  
   def update
+    @customer = Customer.find(params[:id])
     
+    respond_to do |format|
+      if @customer.update_attributes(params[:customer])
+        flash[:notice] = "Customer details successfully updated..."
+        format.html { redirect_to (@customer)  }
+      else
+        flash.now[:error] = "Unable to update the details. Please check the inline error messages."
+        format.html { render :action => 'edit'}
+      end
+    end
   end
   
   def destroy
-    
+    @customer = Customer.find(params[:id])
+    respond_to do |format|
+      if @customer.destroy
+        flash[:notice] = "Customer record successfully deleted..."
+        format.html { redirect_to(customers_path)}
+      else
+        flash[:notice] = "Unable to delete the record."
+        format.html { redirect_to(customers_path) }
+      end
+    end
   end
   
 end

@@ -167,10 +167,11 @@ table.display {
 	clear: left;
 }
 
-table.display thead th {
+table.display thead th {	
 	background-color: #e6EEEE;
 	border: 1px solid #FFF;
 	font-size: 8pt;
+	color:#000000;
 	padding: 4px;
 }
 

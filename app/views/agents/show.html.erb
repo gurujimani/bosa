@@ -1,0 +1,20 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+        <%= link_to "Edit", edit_agent_path(@agent) %><br>
+        <%= link_to "Back", agents_path %>
+    </ul>
+<% end %>
+<br>
+<h2>Agent Details</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+  <tr><th>Agent Name: </th><td><%= @agent.name %></td> </tr>
+  <tr><th>Address: </th><td><%= @agent.address %></td> </tr>
+  <tr><th>City: </th><td><%= @agent.city %></td> </tr>
+  <tr><th>Disctrict: </th><td><%= @agent.district %></td> </tr>
+  <tr><th>Postcode: </th><td><%= @agent.postcode %></td> </tr>
+  <tr><th>Country: </th><td><%= @agent.country %></td> </tr>
+  <tr><th>Telephone#: </th><td><%= @agent.telephone %></td> </tr>
+  <tr><th>Mobile#: </th><td><%= @agent.mobile %></td> </tr>
+  <tr><th>Email: </th><td><%= @agent.email %></td> </tr>
+</table>

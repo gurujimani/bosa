@@ -14,7 +14,7 @@
     </style>
 <![endif]-->
 
-<%= javascript_include_tag 'jquery-1.4.2', 'jquery.metadata', 'jquery-ui-1.8.2.custom.min', 'jquery.tools.min_all', 'jquery.dataTables', 'ZeroClipboard', 'TableTools', 'jquery.utils', 'mbMenu', 'jquery.hoverIntent', 'dispatcher', 'application'  %>
+<%= javascript_include_tag 'jquery-1.4.2', 'jquery.metadata', 'jquery-ui-1.8.2.custom.min', 'jquery.tools.min_all', 'jquery.dataTables', 'ZeroClipboard', 'jquery.utils', 'mbMenu', 'jquery.hoverIntent', 'rails', 'application'  %>
 <%= csrf_meta_tag %>
 
 
@@ -39,14 +39,14 @@
   <!--header -->
   <div id="header">
     <div id="quick-search">
-      <% form_tag '/search', :method => :get do %>
+      <%= form_tag '/search', :method => :get do %>
         <p>
           <%= text_field_tag :search, '', :size => 10 %>
           <%= submit_tag "Search", :name => nil %>
         </p>
       <% end %>
     </div>
-    <h1><a><%= @title %></a></h1>
+    <h1><a>Bosa Remittance</a></h1>
 
           <!-- menu -->
     <div  id="main-menu">
@@ -55,7 +55,8 @@
             <li><%= link_to "Customers", customers_path %></li>
             <li><%= link_to "Orders" %> </li>
             <li><%= link_to "Users" %></li>
-            <li><%= link_to "Agents" %></li>
+            <li><%= link_to "Agents", agents_path %></li>
+            <li><%= link_to "Administration" %></li>
             
             
             <li><%= link_to "Report" %></li>
@@ -64,11 +65,24 @@
         </ul>
     </div>
   </div>
+  <%= tag('div', {:id => 'main', :class => (has_content?(:sidebar) ? '' : 'nosidebar')}, true) %>
+    <!-- content-wrap starts here -->
+    <div id="sidebar">
+      <%= yield :sidebar  %>
+    </div>
 
     <div id="content">
-      <% flash.each do |key, msg| %>
-        <%= content_tag :div, msg, :class => ["flash ", key] %>
-      <% end %>
+      <% if flash[:notice] %>
+        <div class='flash notice'>
+          <%= flash[:notice] %>
+        </div>
+      <% end -%>
+      <% if flash[:error] %>
+        <div class='flash error'>
+          <%= flash[:error] %>
+        </div>
+      <% end -%>
+      
       <%= yield %>
     </div>
 		<!-- content-wrap ends here -->
