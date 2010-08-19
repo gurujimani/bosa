@@ -1,0 +1,29 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+        <li><%= link_to "Cancel", customer_path(@customer) %></li>
+    </ul>
+<% end %>
+<br>
+
+<%= semantic_form_for :contact, @contact, :url  => customer_contacts_path do |f| %>
+  <%= f.inputs "Personal details :" do %>
+    <%= f.input :contact_person %>
+    <%= f.input :dob, :label  => "Date of birth", :as  => :date, :start_year  => Time.now.year - 100, :end_year  => Time.now.year %>
+    <%= f.input :sex, :as  => :radio, :collection  => [ "Male", "Female" ]  %>
+    <%= f.input :relationship %>
+  <% end -%>
+  <%= f.inputs "Contact details :" do %> 
+    <%= f.input :street %>
+    <%= f.input :city %>
+    <%= f.input :postcode %>
+    <%= f.input :district %>
+    <%= f.input :state %>
+    <%= f.input :country, :as  => :country, :priority_countries => [ "Brunei Darussalam", "India", "Singapore" ] %>
+    <%= f.input :telephone, :label  => "Telephone#" %>
+    <%= f.input :mobile, :label  => "Mobile#" %>
+    <%= f.input :email %>
+  <% end -%>
+  <%= f.submit %>
+  <%= link_to "Cancel", customer_path(@customer) %>
+<% end %>

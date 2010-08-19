@@ -1,0 +1,17 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+        <li><%= link_to "Cancel", currencies_path %></li>
+    </ul>
+<% end %>
+<br>
+
+<%= semantic_form_for @currency do |f| %>
+  <%= f.inputs  do %>
+    <%= f.input :name, :label  => "Currency symbol" %>
+    <%= f.input :full_name, :label  => "Currency name" %>
+    <%= f.input :country, :as  => :country, :priority_countries => [ "Brunei Darussalam", "India", "Singapore" ] %>
+  <% end -%>
+  <%= f.submit %>
+  <%= link_to "Cancel", currencies_path %>
+<% end -%>

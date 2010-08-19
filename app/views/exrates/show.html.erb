@@ -1,0 +1,16 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+        <%= link_to "Edit", edit_exrate_path(@exrate) %><br>
+        <%= link_to "Back", exrates_path %>
+    </ul>
+<% end %>
+
+<br>
+<h2>Currency Details</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+  <tr><th>Currency Symbol: </th><td><%= @exrate.currency.name %></td> </tr>
+  <tr><th>Rate on: </th><td><%= @exrate.ex_rate_date %></td> </tr>
+  <tr><th>Buy Rate: </th><td><%= @exrate.buy_rate %></td> </tr>
+  <tr><th>Sell Rate: </th><td><%= @exrate.sell_rate %></td> </tr>
+</table>

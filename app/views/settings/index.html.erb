@@ -1,0 +1,28 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+      <% if !@setting.nil? %>
+        <li><%= link_to "Edit", edit_setting_path(@setting) %></li><br /><hr><br />
+      <% end -%>
+        <li><%= link_to "Currency", currencies_path %></li>
+    </ul>
+<% end %>
+<br>
+
+<h2>System Settings</h2>
+<% if @setting %>
+  <table border="0" cellspacing="5" cellpadding="5">
+    <tr><th>Company Name: </th><td><%= @setting.company_name %></td> </tr>
+    <tr><th>Street: </th><td><%= @setting.street %></td> </tr>
+    <tr><th>City: </th><td><%= @setting.city %></td> </tr>
+    <tr><th>Postcode: </th><td><%= @setting.postcode %></td> </tr>
+    <tr><th>Country: </th><td><%= @setting.country %></td> </tr>
+    <tr><th>Telephone#: </th><td><%= @setting.telephone %></td> </tr>
+    <tr><th>Mobile#: </th><td><%= @setting.mobile %></td> </tr>
+    <tr><th>Email: </th><td><%= @setting.email %></td> </tr>
+    <tr><th>Website: </th><td><%= @setting.website %></td> </tr>
+    <tr><th>Business License No: </th><td><%= @setting.business_license_no %></td> </tr>
+    <tr><th>Base Currency: </th><td><%= @setting.base_currency %></td> </tr>
+    <tr><th>Base Currency Name: </th><td><%= @setting.base_currency_name %></td> </tr>
+  </table>
+<% end -%>

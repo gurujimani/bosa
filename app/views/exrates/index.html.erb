@@ -1,0 +1,35 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+        <li><%= link_to "Create new exchange rate", new_exrate_path %></li>
+    </ul>
+<% end %>
+<br>
+<% unless @exrates.empty? %>
+  <h1>Exchange Rates</h1>
+  <br>
+  <table id="bosaTable" class="display" border="0" cellspacing="1" cellpadding="0">
+    <thead>
+      <tr>
+        <th>Currency</th>
+        <th>Country</th>
+        <th>Ex. Rate Date</th>
+         <th>Sell Rate</th>
+         <th>Buy Rate</th>
+         <th></th>
+       </tr>
+    </thead>
+    <tbody>
+      <% @exrates.each do |exrate| %>
+       <tr>
+         <td><%= exrate.currency.name %></td>
+         <td><%= exrate.currency.country %></td>
+         <td><%= exrate.ex_rate_date %></td>
+         <td><%= number_to_currency(exrate.sell_rate) %></td>
+         <td><%= number_to_currency(exrate.buy_rate) %></td>
+         <td><%= link_to "Show", exrate %> <%= link_to "Edit", edit_exrate_path(exrate) %> <%= link_to "Destroy", exrate, :method  => :delete, :confirm  => 'Are you sure to delete the agent record?' %></td>
+       </tr>
+     <% end %>
+   </tbody>
+  </table>
+<% end -%>

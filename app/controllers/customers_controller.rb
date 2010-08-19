@@ -1,21 +1,29 @@
+# 
+#  customers_controller.rb
+#  bosa
+#  
+#  Created by N.Subramanian on 2010-08-19.
+#  Copyright 2010 N.Subramanian. All rights reserved.
+# 
+
 class CustomersController < ApplicationController
   
   def index
     @customers = Customer.all
     if @customers.empty?
-      flash[:notice] = "No customer record available"
+      flash[:error] = "No customer record found in the system."
     end
   end
   
   def show
     @customer = Customer.find(params[:id])
     
-    if @customer
-      @addresses = @customer.addresses.all
-      flash[:notice] = "No address found for this customer" if @addresses.empty?
-    end
+   #if @customer
+      @contacts = @customer.contacts.all
+      flash[:error] = "No address found for this customer" if @contacts.empty?
+    #end
   end
-  
+    
   def new
     @customer = Customer.new    
     @customer.dob = Time.now
@@ -60,9 +68,24 @@ class CustomersController < ApplicationController
         flash[:notice] = "Customer record successfully deleted..."
         format.html { redirect_to(customers_path)}
       else
-        flash[:notice] = "Unable to delete the record."
+        flash[:error] = "Unable to delete the record."
         format.html { redirect_to(customers_path) }
       end
+    end
+  end
+  
+  def getcontacts
+    if !params[:id].empty?
+      @customer = Customer.find(params[:id])
+      @contacts = @customer.contacts.all
+        
+      respond_to do |format|
+        if !@contacts.empty?
+          format.js { render :partial => 'contacts' }
+        end
+      end
+    else
+      render :text => 'Please select a customer from the list'
     end
   end
   

@@ -1,3 +1,24 @@
+# == Schema Information
+# Schema version: 20100807152434
+#
+# Table name: agents
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)     not null
+#  street     :string(255)     not null
+#  city       :string(255)
+#  postcode   :string(255)
+#  district   :string(255)
+#  state      :string(255)
+#  country    :string(255)     not null
+#  telephone  :string(255)     not null
+#  mobile     :string(255)
+#  email      :string(255)
+#  active     :boolean
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 # This model initially had no columns defined.  If you add columns to the

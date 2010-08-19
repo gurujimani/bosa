@@ -9,11 +9,11 @@
 <%= semantic_form_for @customer do |f| %>
   <%= f.inputs "Personal details :" do %>
     <%= f.input :name %>
-    <%= f.input :dob, :label  => "Date of birth", :as  => :date, :start_year  => Time.now.year - 100, :end_year  => Time.now.year %>
+    <%= f.input :dob, :label  => "Date of birth", :as  => :datepicker %>
     <%= f.input :sex, :as  => :radio, :collection  => [ "Male", "Female" ]  %>
   <% end -%>
   <%= f.inputs "Contact details :" do %> 
-    <%= f.input :address %>
+    <%= f.input :street %>
     <%= f.input :city %>
     <%= f.input :postcode %>
     <%= f.input :district %>

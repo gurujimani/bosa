@@ -1,0 +1,31 @@
+
+<%= semantic_form_for @order do |f| %>
+  <%= f.inputs "Customer Details:" do %>
+    <%= f.input :date, :as  => :datepicker %>
+    <%= f.input :customer, :as  => :select %>
+  <% end -%>
+  <div id="address"></div>
+  <%= f.inputs "Amount Details: " do %>
+    <%= f.input :amount, :label  => "Payin Amount" %>
+    <%= f.input :delivery_currency, :as  => :select, :collection  => Currency.all %>
+    <%= f.input :amount_to_deliver, :label  => "Payout Amount" %>
+    <%= f.input :ex_rate, :label  => "Exchange Rate" %>
+    <%= f.input :commission %>
+    <%= f.input :charge %>
+    <%= f.input :agent_id, :as  => :select, :collection  => Agent.all %>
+  <% end -%>
+  <%= f.inputs "Receiver Details: " do %>
+    <%= f.input :receiver_name %>
+    <%= f.input :street %>
+    <%= f.input :city %>
+    <%= f.input :postcode %>
+    <%= f.input :district %>
+    <%= f.input :state %>
+    <%= f.input :country, :as  => :country, :priority_countries => [ "Brunei Darussalam", "India", "Singapore" ] %>
+    <%= f.input :telephone, :label  => "Telephone#" %>
+    <%= f.input :mobile_phone, :label  => "Mobile#" %>
+    <%= f.input :email %>
+  <% end -%>
+  <%= f.submit %>
+  <%= link_to "Cancel", :back %>
+<% end %>

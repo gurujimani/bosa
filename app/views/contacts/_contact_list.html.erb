@@ -1,0 +1,37 @@
+<% unless @contacts.empty? %>
+  <h2>contact</h2>
+  <br>
+  <table id="bosaTable" class="display" border="0" cellspacing="1" cellpadding="0">
+    <thead>
+      <tr>
+        <th>Contact Name</th>
+        <th>Relationship</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>District</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Mobile#</th>
+        <th>Telephone#</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contacts.each do |contact| %>
+       <tr>
+         <td><%= link_to contact.name, contact %></td>
+         <td><%= contact.street %></td>
+         <td><%= contact.city %></td>
+         <td><%= contact.district %></td>
+         <td><%= contact.state %></td>
+         <td><%= contact.country %></td>
+         <td><%= contact.mobile %></td>
+         <td><%= contact.telephone %></td>
+         <td><%= contact.email %></td>
+         <td><%= link_to "Edit", edit_contact_path(contact) %> <%= link_to "Destroy", contact, :method  => :delete, :confirm  => 'Are you sure to delete the address record?' %></td>
+         </tr>
+     <% end %>
+   </tbody>
+  </table>
+<% end -%>

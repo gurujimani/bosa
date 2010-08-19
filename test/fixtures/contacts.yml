@@ -1,0 +1,35 @@
+# == Schema Information
+# Schema version: 20100808035915
+#
+# Table name: contacts
+#
+#  id             :integer         not null, primary key
+#  customer_id    :integer         not null
+#  contact_person :string(255)     not null
+#  dob            :date
+#  sex            :string(255)
+#  relationship   :string(255)
+#  street         :string(255)     not null
+#  city           :string(255)     not null
+#  postcode       :string(255)
+#  district       :string(255)
+#  state          :string(255)
+#  country        :string(255)     not null
+#  telephone      :string(255)
+#  mobile         :string(255)
+#  email          :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

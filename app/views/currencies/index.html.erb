@@ -1,0 +1,33 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+        <li><%= link_to "Create new currency", new_currency_path %></li><br /><hr><br />
+        <li><%= link_to "Back", settings_url %></li>
+        
+    </ul>
+<% end %>
+<br>
+<% if !@currencies.empty? %>
+  <h1>Currencies </h1>
+  <br>
+  <table id="bosaTable" class="display" border="0" cellspacing="1" cellpadding="0">
+    <thead>  
+    <tr>
+      <th>Symbol</th>
+       <th>Full Name</th>
+       <th>Country</th>
+       <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @currencies.each do |currency| %>
+     <tr>
+       <td><%= link_to currency.name, currency %></td>
+       <td><%= currency.full_name %></td>
+       <td><%= currency.country %></td>
+       <td><%= link_to "Edit", edit_currency_path(currency) %> <%= link_to "Destroy", currency, :method  => :delete, :confirm  => 'Are you sure to delete the currency record?' %></td>
+        </tr>
+   <% end %>
+   </tbody>
+  </table>
+  <% end -%>

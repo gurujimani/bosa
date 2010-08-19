@@ -1,0 +1,18 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+        <li><%= link_to "Cancel", :back %></li>
+    </ul>
+<% end %>
+<br>
+
+<%= semantic_form_for @exrate do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :currency_id, :as  => :select, :collection  => Currency.all %>
+    <%= f.input :ex_rate_date %>
+    <%= f.input :buy_rate %>
+    <%= f.input :sell_rate %>
+  <% end -%>
+  <%= f.submit %>
+  <%= link_to "Cancel", :back %>
+<% end %>

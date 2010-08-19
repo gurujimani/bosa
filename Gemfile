@@ -16,15 +16,17 @@ gem 'pdfkit'
 
 
 # Gems for Cucumber
-
-#gem 'capybara'
-#gem 'database_cleaner'
-#gem 'cucumber-rails'
-#gem 'cucumber'
-#gem 'rspec', '2.0.0.beta.14'
-#gem 'rspec-rails', '2.0.0.beta.14.2'
-#gem 'spork'
-#gem 'launchy'
+group :development do
+  gem 'annotate-models'
+  #gem 'capybara'
+  #gem 'database_cleaner'
+  #gem 'cucumber-rails'
+  #gem 'cucumber'
+  #gem 'rspec', '2.0.0.beta.14'
+  #gem 'rspec-rails', '2.0.0.beta.14.2'
+  #gem 'spork'
+  #gem 'launchy'
+end
 
 
 # Use unicorn as the web server

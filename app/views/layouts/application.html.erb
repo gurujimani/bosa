@@ -26,9 +26,11 @@
 <div id="wrapper">
   <div id="top-menu">
     <div id="loggedas">
+      <%= link_to "Settings", settings_path %>
       <% if current_user %>
         <%= link_to "Home", root_url %>  |
         Logged in as: <%= link_to current_user.username, user_path(current_user) %> |
+
         <%= link_to "Logout"  %>
       <% else %>
         <%= link_to "Login", new_user_session_path  %>
@@ -53,15 +55,13 @@
         <ul>
             <li><%= link_to  "My Page" %></li>
             <li><%= link_to "Customers", customers_path %></li>
-            <li><%= link_to "Orders" %> </li>
+            <li><%= link_to "Orders", orders_path %> </li>
             <li><%= link_to "Users" %></li>
             <li><%= link_to "Agents", agents_path %></li>
-            <li><%= link_to "Administration" %></li>
-            
-            
+            <li><%= link_to "Exchange Rate", exrates_path %></li>
             <li><%= link_to "Report" %></li>
             
-            <li><%= button_to "New Order" %></li>
+            <li><%= button_to "New Order", new_order_path, :method  => :get %></li>
         </ul>
     </div>
   </div>
@@ -74,6 +74,11 @@
     <div id="content">
       <% if flash[:notice] %>
         <div class='flash notice'>
+          <%= flash[:notice] %>
+        </div>
+      <% end -%>
+      <% if flash[:warning] %>
+        <div class='flash warning'>
           <%= flash[:notice] %>
         </div>
       <% end -%>

@@ -1,0 +1,26 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+        <li><%= link_to "Cancel", :back %></li>
+    </ul>
+<% end %>
+<br>
+
+<%= semantic_form_for @setting do |f| %>
+  <%= f.inputs "Application Settings:" do %>
+    <%= f.input :company_name %>
+    <%= f.input :street %>
+    <%= f.input :city %>
+    <%= f.input :postcode %>
+    <%= f.input :country, :as  => :country, :priority_countries => [ "Brunei Darussalam", "India", "Singapore" ] %>
+    <%= f.input :telephone, :label  => "Telephone#" %>
+    <%= f.input :mobile, :label  => "Mobile#" %>
+    <%= f.input :email %>
+    <%= f.input :website %>
+    <%= f.input :business_license_no %>
+    <%= f.input :base_currency %>
+    <%= f.input :base_currency_name %>
+  <% end -%>
+  <%= f.submit %>
+  <%= link_to "Cancel", :back %>
+<% end %>

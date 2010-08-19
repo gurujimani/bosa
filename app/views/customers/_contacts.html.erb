@@ -1,0 +1,36 @@
+<% unless @contacts.empty? %>
+  <h3>Addresses</h3>
+  <br>
+  <table id="bosaTable" class="display" border="0" cellspacing="1" cellpadding="0">
+    <thead>
+      <tr>
+        <th>Contact Name</th>
+        <th>Relationship</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>District</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Mobile#</th>
+        <th>Telephone#</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contacts.each do |contact| %>
+       <tr>
+         <td><%= contact.contact_person %></td>
+         <td><%= contact.relationship %></td>
+         <td><%= contact.street %></td>
+         <td><%= contact.city %></td>
+         <td><%= contact.district %></td>
+         <td><%= contact.state %></td>
+         <td><%= contact.country %></td>
+         <td><%= contact.mobile %></td>
+         <td><%= contact.telephone %></td>
+         <td><%= link_to "Select" %></td>
+         </tr>
+     <% end %>
+   </tbody>
+  </table>
+<% end -%>

@@ -1,3 +1,27 @@
+# == Schema Information
+# Schema version: 20100724112633
+#
+# Table name: addresses
+#
+#  id             :integer         not null, primary key
+#  customer_id    :integer         not null
+#  contact_person :string(255)     not null
+#  dob            :date
+#  sex            :string(255)
+#  relationship   :string(255)
+#  address        :string(255)     not null
+#  city           :string(255)     not null
+#  postcode       :string(255)
+#  district       :string(255)
+#  state          :string(255)
+#  country        :string(255)     not null
+#  telephone      :string(255)
+#  mobile         :string(255)
+#  email          :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 # This model initially had no columns defined.  If you add columns to the

@@ -1,0 +1,15 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="sidemenu">
+        <%= link_to "Edit", edit_currency_path(@currency) %><br>
+        <%= link_to "Back", settings_path %>
+    </ul>
+<% end %>
+
+<br>
+<h2>Currency Details</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+  <tr><th>Currency Symbol: </th><td><%= @currency.name %></td> </tr>
+  <tr><th>Full Name: </th><td><%= @currency.full_name %></td> </tr>
+  <tr><th>Country: </th><td><%= @currency.country %></td> </tr>
+</table>

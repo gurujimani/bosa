@@ -39,9 +39,9 @@ form.formtastic ul.errors li { padding:0; border:none; display:list-item; }*/
 
 
 /* FIELDSETS & LISTS
---------------------------------------------------------------------------------------------------
-form.formtastic fieldset { }
-form.formtastic fieldset.inputs { }
+-------------------------------------------------------------------------------------------------- */
+form.formtastic fieldset { background-color:#FFDD88; }
+/*form.formtastic fieldset.inputs { }
 form.formtastic fieldset.buttons { padding-left:25%; }*/
 form.formtastic fieldset ol { margin: 1em 0 0 1.5em; }
 /*form.formtastic fieldset.buttons li { float:left; padding-right:0.5em; }*/
@@ -61,10 +61,10 @@ form.formtastic fieldset > ol > li { margin-bottom:1.5em; }
 form.formtastic fieldset > ol > li { display: inline-block; }
 form.formtastic fieldset > ol > li:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 html[xmlns] form.formtastic fieldset > ol > li { display: block; }
-* html form.formtastic fieldset > ol > li { height: 1%; }
+* html form.formtastic fieldset > ol > li { height: 1%; }*/
 
-form.formtastic fieldset > ol > li.required { }
-form.formtastic fieldset > ol > li.optional { }
+form.formtastic fieldset > ol > li.required { color: red }
+/*form.formtastic fieldset > ol > li.optional { }
 form.formtastic fieldset > ol > li.error { }
   
 */
@@ -155,3 +155,7 @@ form.formtastic fieldset > ol > li.date fieldset ol li label input,
 form.formtastic fieldset > ol > li.time fieldset ol li label input, 
 form.formtastic fieldset > ol > li.datetime fieldset ol li label input { display:inline; margin:0; padding:0;  }
 */
+
+/* Style for multi column forms
+form.formtastic fieldset { float:left; width:330px; margin-left:50px; }
+form.formtastic fieldset.column_1 {margin-left:10px; } */

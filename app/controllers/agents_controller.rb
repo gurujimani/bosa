@@ -2,7 +2,7 @@ class AgentsController < ApplicationController
   def index
     @agents = Agent.all
     
-    flash[:notice] = "I could not find any agent account in the system." if @agents.empty?
+    flash[:error] = "No agent record found in the system." if @agents.empty?
   end
 
   def show

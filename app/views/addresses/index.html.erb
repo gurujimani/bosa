@@ -6,7 +6,7 @@
       <tr>
         <th>Contact Name</th>
         <th>Relationship</th>
-        <th>Address</th>
+        <th>Street</th>
         <th>City</th>
         <th>District</th>
         <th>State</th>
@@ -21,7 +21,7 @@
       <% @addresses.each do |address| %>
        <tr>
          <td><%= link_to address.name, address %></td>
-         <td><%= address.address %></td>
+         <td><%= address.street %></td>
          <td><%= address.city %></td>
          <td><%= address.district %></td>
          <td><%= address.state %></td>

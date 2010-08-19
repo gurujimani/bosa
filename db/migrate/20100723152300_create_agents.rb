@@ -2,7 +2,7 @@ class CreateAgents < ActiveRecord::Migration
   def self.up
     create_table :agents do |t|
       t.string :name, :null  => false
-      t.string :address, :null  => false
+      t.string :street, :null  => false
       t.string :city
       t.string :postcode
       t.string :district
