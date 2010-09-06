@@ -16,11 +16,16 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     
-    if @order.save
-      flash[:notice] = "New order created successfully" 
+    respond_to do |format|
+      
+      if @order.save
+        flash[:notice] = "New order created successfully"
+        format.html {redirect_to(@order)}
+      else
+        flash[:error] = "Unable to create the order. Please check the error messages."
+        format.html { render :action => 'new' }
+      end
     end
-    
-    respond_with(@order)
     
   end
 

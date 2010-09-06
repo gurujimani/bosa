@@ -40,7 +40,7 @@ form.formtastic ul.errors li { padding:0; border:none; display:list-item; }*/
 
 /* FIELDSETS & LISTS
 -------------------------------------------------------------------------------------------------- */
-form.formtastic fieldset { background-color:#FFDD88; }
+/*form.formtastic fieldset { background-color:#2A1F17; }
 /*form.formtastic fieldset.inputs { }
 form.formtastic fieldset.buttons { padding-left:25%; }*/
 form.formtastic fieldset ol { margin: 1em 0 0 1.5em; }

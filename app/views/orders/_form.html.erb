@@ -6,10 +6,10 @@
   <% end -%>
   <div id="address"></div>
   <%= f.inputs "Amount Details: " do %>
-    <%= f.input :amount, :label  => "Payin Amount" %>
     <%= f.input :delivery_currency, :as  => :select, :collection  => Currency.all %>
-    <%= f.input :amount_to_deliver, :label  => "Payout Amount" %>
     <%= f.input :ex_rate, :label  => "Exchange Rate" %>
+    <%= f.input :amount, :label  => "Payin Amount (BND)" %>
+    <%= f.input :amount_to_deliver, :label  => "Payout Amount" %>
     <%= f.input :commission %>
     <%= f.input :charge %>
     <%= f.input :agent_id, :as  => :select, :collection  => Agent.all %>

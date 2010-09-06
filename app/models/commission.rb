@@ -14,5 +14,8 @@
 #
 
 class Commission < ActiveRecord::Base
-  
+  validates :from_amount, :presence => true
+  validates :to_amount, :presence => true
+  validates :commission, :presence => true
+  validates :charge, :presence => true
 end

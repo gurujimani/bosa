@@ -10,7 +10,13 @@ Bosa::Application.routes.draw do |map|
   end
   
   resources :agents
-  resources :commissions
+  
+  resources :commissions do
+    collection do
+      get :getcommission
+    end
+  end
+  
   resources :settings
   resources :currencies do
     collection do
