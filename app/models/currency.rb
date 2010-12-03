@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100804142447
+# Schema version: 20100930135636
 #
 # Table name: currencies
 #
@@ -10,13 +10,6 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
-# 
-#  currency.rb
-#  bosa
-#  
-#  Created by N.Subramanian on 2010-08-19.
-#  Copyright 2010 N.Subramanian. All rights reserved.
-# 
 
 class Currency < ActiveRecord::Base
   has_many :exrates

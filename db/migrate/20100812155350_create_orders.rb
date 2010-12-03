@@ -23,7 +23,8 @@ class CreateOrders < ActiveRecord::Migration
       t.references :agent
       t.decimal :commission, :precision  => 10, :scale  => 2
       t.decimal :charge, :precision  => 10, :scanel  => 2
-      
+      t.text :remarks
+            
       t.timestamps
     end
   end

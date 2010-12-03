@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100807152434
+# Schema version: 20100930135636
 #
 # Table name: users
 #
@@ -21,16 +21,31 @@
 #  created_at           :datetime
 #  updated_at           :datetime
 #  username             :string(255)
+#  userlevel            :string(255)
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable, :timeoutable and :confirmable,
-  devise :database_authenticatable, :lockable, :timeoutable, 
+  devise :database_authenticatable, :registerable, :timeoutable, :lockable,  
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :username, :userlevel
   
   validates_presence_of :username, :message => "can't be blank"
+  #validates_presence_of :userlevel, :message  => "Please assing a user level"
+
+  # Array holding the user level details
+  USER_LEVEL = [
+    ["User", "User"],
+    ["Agent", "Agent"],
+    ["Admin", "Admin"]
+  ]
+    
+  def admin?
+    userlevel == "Admin"
+  end
+  
+    
 end

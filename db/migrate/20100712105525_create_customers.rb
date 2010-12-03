@@ -14,7 +14,8 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :passport_number      
       t.string :telephone, :null  => false
       t.string :mobile
-      t.string :email     
+      t.string :email
+      t.boolean :active, :default  => true           
       
       t.timestamps
     end

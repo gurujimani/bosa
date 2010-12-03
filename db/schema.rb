@@ -1,8 +1,8 @@
-# This file is auto-generated from the current state of the database. Instead 
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your 
+# Note that this schema.rb definition is the authoritative source for your
 # database schema. If you need to create the application database on another
 # system, you should be using db:schema:load, not running all the migrations
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
@@ -10,20 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100812155350) do
+ActiveRecord::Schema.define(:version => 20100930135636) do
 
   create_table "agents", :force => true do |t|
-    t.string   "name",       :null => false
-    t.string   "street",     :null => false
+    t.string   "name",                         :null => false
+    t.string   "street",                       :null => false
     t.string   "city"
     t.string   "postcode"
     t.string   "district"
     t.string   "state"
-    t.string   "country",    :null => false
-    t.string   "telephone",  :null => false
+    t.string   "country",                      :null => false
+    t.string   "telephone",                    :null => false
     t.string   "mobile"
     t.string   "email"
-    t.boolean  "active"
+    t.boolean  "active",     :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,20 +66,21 @@ ActiveRecord::Schema.define(:version => 20100812155350) do
   end
 
   create_table "customers", :force => true do |t|
-    t.string   "name",            :null => false
+    t.string   "name",                              :null => false
     t.date     "dob"
     t.string   "sex"
-    t.string   "street",          :null => false
-    t.string   "city",            :null => false
+    t.string   "street",                            :null => false
+    t.string   "city",                              :null => false
     t.string   "district"
     t.string   "postcode"
     t.string   "country"
     t.string   "position"
     t.string   "ic_number"
     t.string   "passport_number"
-    t.string   "telephone",       :null => false
+    t.string   "telephone",                         :null => false
     t.string   "mobile"
     t.string   "email"
+    t.boolean  "active",          :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -116,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20100812155350) do
     t.integer  "agent_id"
     t.decimal  "commission",        :precision => 10, :scale => 2
     t.decimal  "charge",            :precision => 10, :scale => 0
+    t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -155,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20100812155350) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.string   "userlevel"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

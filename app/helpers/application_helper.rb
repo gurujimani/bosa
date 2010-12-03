@@ -10,4 +10,9 @@ module ApplicationHelper
     (@has_content && @has_content[name]) || false
   end
   
+  def menu
+    menu = navigation [:menu]
+    #menu.html_safe
+  end
+  
 end

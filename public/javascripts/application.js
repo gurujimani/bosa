@@ -14,6 +14,7 @@ function IsNumeric(input){
    return (input - 0) == input && input.length > 0;
 };
 
+
 function CalculatePayinAmt(){
   if($('#order_ex_rate').val()){
       $('#order_amount').val(($('#order_amount_to_deliver').val() / $('#order_ex_rate').val() ).toFixed(2) );      
@@ -134,3 +135,7 @@ $(document).ready(function(){
     }
   });
 });
+
+// $(document).ready(function(){
+//   $("label").inFieldLabels();
+// });

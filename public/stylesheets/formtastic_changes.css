@@ -21,15 +21,18 @@ This stylesheet forms part of the Formtastic Rails Plugin
 
 
 /* NORMALIZE AND RESET - obviously inspired by Yahoo's reset.css, but scoped to just form.formtastic
---------------------------------------------------------------------------------------------------
-form.formtastic, form.formtastic ul, form.formtastic ol, form.formtastic li, form.formtastic fieldset, form.formtastic legend, form.formtastic input, form.formtastic textarea, form.formtastic select, form.formtastic p { margin:0; padding:0; }
-form.formtastic fieldset { border:0; }
+--------------------------------------------------------------------------------------------------*/
+
+form.formtastic, form.formtastic ul, form.formtastic ol, form.formtastic li, form.formtastic fieldset, form.formtastic legend, form.formtastic input, form.formtastic textarea, form.formtastic select, form.formtastic p {  margin:0; padding:0; }
+form.formtastic {margin: 0 0 10px 0;}
+/*form.formtastic fieldset { border:0; }
 form.formtastic em, form.formtastic strong { font-style:normal; font-weight:normal; }
 form.formtastic ol, form.formtastic ul { list-style:none; }
 form.formtastic abbr, form.formtastic acronym { border:0; font-variant:normal; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { font-family:inherit; font-size:inherit; font-weight:inherit; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { font-size:100%; }*/
-form.formtastic legend { font-size:medium; color:#000;}
+form.formtastic legend { font-size:medium; color:#000;  }
+form.formtastic legend span {margin:0 0 0 10px;}
 
 
 /* SEMANTIC ERRORS
@@ -40,7 +43,7 @@ form.formtastic ul.errors li { padding:0; border:none; display:list-item; }*/
 
 /* FIELDSETS & LISTS
 -------------------------------------------------------------------------------------------------- */
-/*form.formtastic fieldset { background-color:#2A1F17; }
+form.formtastic fieldset { background-color:#fff; }
 /*form.formtastic fieldset.inputs { }
 form.formtastic fieldset.buttons { padding-left:25%; }*/
 form.formtastic fieldset ol { margin: 1em 0 0 1.5em; }
@@ -79,8 +82,8 @@ form.formtastic fieldset > ol > li > li label input { line-height:100%; vertical
 --------------------------------------------------------------------------------------------------
 form.formtastic fieldset > ol > li fieldset { position:relative; }*/
 form.formtastic fieldset > ol > li fieldset legend { position:absolute; width:95%; padding-top:0.1em; left: 0px; font-size:100% }
-/*form.formtastic fieldset > ol > li fieldset legend span { position:absolute; }
-form.formtastic fieldset > ol > li fieldset legend.label label { position:absolute; }
+form.formtastic fieldset > ol > li fieldset legend span { position:absolute; }
+/*form.formtastic fieldset > ol > li fieldset legend.label label { position:absolute; }
 form.formtastic fieldset > ol > li fieldset ol { float:left; width:74%; margin:0; padding:0 0 0 25%; }
 form.formtastic fieldset > ol > li fieldset ol li { padding:0; border:0; }
 

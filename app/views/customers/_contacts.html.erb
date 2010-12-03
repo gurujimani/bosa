@@ -28,7 +28,7 @@
          <td><%= contact.country %></td>
          <td><%= contact.mobile %></td>
          <td><%= contact.telephone %></td>
-         <td><%= link_to "Select" %></td>
+         <td><%= radio_button_tag "contact_id", contact.id %></td>
          </tr>
      <% end %>
    </tbody>

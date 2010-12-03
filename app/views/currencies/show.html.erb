@@ -1,8 +1,8 @@
 <% content_for :sidebar do %>
   <h3>Action Menu</h3>
-    <ul class="sidemenu">
-        <%= link_to "Edit", edit_currency_path(@currency) %><br>
-        <%= link_to "Back", settings_path %>
+    <ul class="navigation">
+        <li><%= link_to "Edit", edit_currency_path(@currency) %></li>
+        <li><%= link_to "Back", settings_path %></li>
     </ul>
 <% end %>
 

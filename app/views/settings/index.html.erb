@@ -1,6 +1,6 @@
 <% content_for :sidebar do %>
   <h3>Action Menu</h3>
-    <ul class="sidemenu">
+    <ul class="navigation">
       <% if !@setting.nil? %>
         <li><%= link_to "Edit", edit_setting_path(@setting) %></li><br /><hr><br />
       <% end -%>

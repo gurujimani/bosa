@@ -1,0 +1,18 @@
+  <%= f.inputs "Exchange details" do %>
+    <%= f.input :ex_rate, :label  => "Exchange Rate", :input_html => { :style => "width:10em" } %>
+    <%= f.input :commission, :input_html => { :style => "width:10em" } %>
+    <%= f.input :charge, :input_html => { :style => "width:10em" } %>
+  <% end -%>
+  
+  <%= f.inputs "Receiver Details: " do %>
+    <%= f.input :receiver_name %>
+    <%= f.input :street %>
+    <%= f.input :city %>
+    <%= f.input :postcode, :input_html => { :style => "width:10em" } %>
+    <%= f.input :district %>
+    <%= f.input :state %>
+    <%= f.input :country, :as  => :country, :priority_countries => [ "Brunei Darussalam", "India", "Singapore" ] %>
+    <%= f.input :telephone, :label  => "Telephone#", :input_html => { :style => "width:15em" } %>
+    <%= f.input :mobile_phone, :label  => "Mobile#", :input_html => { :style => "width:15em" } %>
+    <%= f.input :email %>
+  <% end -%>

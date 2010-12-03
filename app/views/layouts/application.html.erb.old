@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>   
+<%= stylesheet_link_tag 'application' %>
+<%= stylesheet_link_tag 'formtastic', 'formtastic_changes', 'datatable', 'jquery.utils' %>
+<%= stylesheet_link_tag 'jquery-ui-1.8.2.custom', 'menu1' %>
+
+<!--[if IE]>
+    <style type="text/css">
+      * html body{ width: expression( document.documentElement.clientWidth < 900 ? '900px' : '100%' ); }
+      body {behavior: url(<%= stylesheet_path "csshover.htc" %>);}
+    </style>
+<![endif]-->
+
+<%= javascript_include_tag 'jquery-1.4.2', 'jquery.metadata', 'jquery-ui-1.8.2.custom.min', 'jquery.tools.min_all', 'jquery.dataTables', 'ZeroClipboard', 'jquery.utils', 'mbMenu', 'jquery.hoverIntent', 'rails', 'application'  %>
+<%= csrf_meta_tag %>
+
+
+<title><%= @title %></title>
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrapper">
+  <div id="top-menu">
+    <div id="loggedas">
+      <%= link_to "Settings", settings_path %>
+      <% if current_user %>
+        <%= link_to "Home", root_url %>  |
+        Logged in as: <%= link_to current_user.username, user_path(current_user) %> |
+
+        <%= link_to "Logout"  %>
+      <% else %>
+        <%= link_to "Login", user_session_new_path  %>
+      <% end %>
+   </div>
+  </div>
+
+  <!--header -->
+  <div id="header">
+    <div id="quick-search">
+      <%= form_tag '/search', :method => :get do %>
+        <p>
+          <%= text_field_tag :search, '', :size => 10 %>
+          <%= submit_tag "Search", :name => nil %>
+        </p>
+      <% end %>
+    </div>
+    <h1><a>Bosa Remittance</a></h1>
+
+          <!-- menu -->
+    <div  id="main-menu">
+        <ul>
+            <li><%= link_to  "My Page" %></li>
+            <li><%= link_to "Customers", customers_path %></li>
+            <li><%= link_to "Orders", orders_path %> </li>
+            <li><%= link_to "Users" %></li>
+            <li><%= link_to "Agents", agents_path %></li>
+            <li><%= link_to "Exchange Rate", exrates_path %></li>
+            <li><%= link_to "Report" %></li>
+            
+            <li><%= button_to "New Order", new_order_path, :method  => :get %></li>
+        </ul>
+    </div>
+  </div>
+  <%= tag('div', {:id => 'main', :class => (has_content?(:sidebar) ? '' : 'nosidebar')}, true) %>
+    <!-- content-wrap starts here -->
+    <div id="sidebar">
+      <%= yield :sidebar  %>
+    </div>
+
+    <div id="content">
+      <% if flash[:notice] %>
+        <div class='flash notice'>
+          <%= flash[:notice] %>
+        </div>
+      <% end -%>
+      <% if flash[:warning] %>
+        <div class='flash warning'>
+          <%= flash[:notice] %>
+        </div>
+      <% end -%>
+      <% if flash[:error] %>
+        <div class='flash error'>
+          <%= flash[:error] %>
+        </div>
+      <% end -%>
+      
+      <%= yield %>
+    </div>
+		<!-- content-wrap ends here -->
+
+
+    <!--footer starts here-->
+    <div id="footer">
+
+            <p>
+            &copy; 2006 <strong>N.Subramanian</strong> |
+            Design by: <a href="http://www.google.com">Mani</a> |
+
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    </div>
+
+<!-- wrap ends here -->
+</div>
+
+</body>
+</html>

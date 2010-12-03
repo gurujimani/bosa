@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100807152434
+# Schema version: 20100930135636
 #
 # Table name: exrates
 #
@@ -11,13 +11,6 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #
-# 
-#  exrate.rb
-#  bosa
-#  
-#  Created by N.Subramanian on 2010-08-19.
-#  Copyright 2010 N.Subramanian. All rights reserved.
-# 
 
 class Exrate < ActiveRecord::Base
   belongs_to :currency

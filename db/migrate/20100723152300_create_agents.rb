@@ -11,7 +11,7 @@ class CreateAgents < ActiveRecord::Migration
       t.string :telephone, :null  => false
       t.string :mobile
       t.string :email
-      t.boolean :active
+      t.boolean :active, :default  => true
       
       t.timestamps
     end

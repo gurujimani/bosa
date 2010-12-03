@@ -7,12 +7,15 @@
 # 
 
 class CustomersController < ApplicationController
+  #current_section("customers")
   
+  #load_and_authorize_resource
+    
   def index
     @customers = Customer.all
-    if @customers.empty?
-      flash[:error] = "No customer record found in the system."
-    end
+      if @customers.empty?
+        flash[:error] = "No customer record found in the system."
+      end
   end
   
   def show
@@ -26,7 +29,7 @@ class CustomersController < ApplicationController
     
   def new
     @customer = Customer.new    
-    @customer.dob = Time.now
+    @customer.dob = Time.now.to_date
   end
   
   def create
@@ -48,6 +51,7 @@ class CustomersController < ApplicationController
   end
   
   def update
+    
     @customer = Customer.find(params[:id])
     
     respond_to do |format|

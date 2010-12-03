@@ -1,0 +1,22 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="navigation">
+        <li><%= link_to "Cancel", :back %></li>
+    </ul>
+<% end %>
+<br />
+
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :username %></p>
+    <%= f.input :password %></p>
+    <%= f.input :password_confirmation %></p>
+    <%= f.input :email %></p>
+    <%= f.input :userlevel, :as  => :select, :collection => User::USER_LEVEL %>
+  <% end %>  
+  <%= f.submit "Update" %>
+<% end %>
+
+<%= link_to "Back", :back %>

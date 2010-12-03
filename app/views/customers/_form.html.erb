@@ -1,8 +1,7 @@
 <% content_for :sidebar do %>
   <h3>Action Menu</h3>
-    <ul class="sidemenu">
+    <ul class="navigation">
         <li><%= link_to "Cancel", :back %></li>
-        <li><%= link_to "Sriraj" %></li>
     </ul>
 <% end %>
 <br>
@@ -24,6 +23,7 @@
     <%= f.input :telephone, :label  => "Telephone#" %>
     <%= f.input :mobile, :label  => "Mobile#" %>
     <%= f.input :email %>
+    <%= f.input :active %>
   <% end -%>
   <%= f.submit %>
   <%= link_to "Cancel", :back %>

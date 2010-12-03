@@ -1,0 +1,24 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="navigation">
+        <li><%= link_to "Cancel", :back %></li>
+    </ul>
+<% end %>
+<br>
+<h3>Walk-In Customer - New Order</h3>
+<%= semantic_form_for :order, @order, :url  => { :action  => "walkincreate" } do |f| %>
+  <%= f.inputs  do %>
+    <%= f.input :date, :as  => :datepicker %>
+  <% end -%>
+  <div id="details1">
+    <%= render :partial => 'details1', :locals  => {:f  => f} %>
+  </div>
+    
+  <div id="details2">
+    <br />
+    <%= render :partial => 'details2', :locals => {:f => f}%>
+  </div>
+  
+  <%= f.submit "Create Order", :remote => true %>
+  <%= link_to "Cancel", :back %>
+<% end %>
