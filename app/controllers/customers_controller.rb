@@ -20,11 +20,8 @@ class CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
-    
-   #if @customer
-      @contacts = @customer.contacts.all
-      flash[:error] = "No address found for this customer" if @contacts.empty?
-    #end
+    @contacts = @customer.contacts.all
+    flash[:error] = "No address found for this customer" if @contacts.empty?      
   end
     
   def new
@@ -70,11 +67,12 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.destroy
         flash[:notice] = "Customer record successfully deleted..."
-        format.html { redirect_to(customers_path)}
+        #format.html { redirect_to(customers_path)}
       else
         flash[:error] = "Unable to delete the record."
-        format.html { redirect_to(customers_path) }
+        #format.html { redirect_to(customers_path) }
       end
+      format.html { redirect_to(customers_path)}
     end
   end
   
@@ -84,9 +82,7 @@ class CustomersController < ApplicationController
       @contacts = @customer.contacts.all
         
       respond_to do |format|
-        if !@contacts.empty?
-          format.js { render :partial => 'contacts' }
-        end
+          format.js { render :partial => 'contacts' } unless @contacts.empty?
       end
     else
       render :text => 'Please select a customer from the list'

@@ -24,6 +24,8 @@
     <%= f.input :mobile, :label  => "Mobile#" %>
     <%= f.input :email %>
   <% end -%>
-  <%= f.submit %>
-  <%= link_to "Cancel", customer_path(@customer) %>
+  <span class="my_button">
+    <%= f.submit %>
+    <%= link_to "Cancel", customer_path(@customer) %>
+  </span>
 <% end %>

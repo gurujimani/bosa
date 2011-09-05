@@ -1,22 +1,24 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.10'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
  
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'formtastic'
+gem 'formtastic', '>=1.2.3'
 gem 'devise'
 gem 'tabletastic'
 gem 'validation_reflection'
 gem 'to_xls'
 gem 'cancan'
 gem 'pdfkit'
-gem 'web-app-theme-rails'
+
 
 # Gems for Cucumber
 group :development do
+  gem 'web-app-theme', '>= 0.7.0' 
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
   gem 'annotate-models'
   gem 'rails-erd'
   gem 'railroady'

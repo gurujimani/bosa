@@ -3,7 +3,7 @@
   <br>
   <table id="bosaTable" class="display" border="0" cellspacing="1" cellpadding="0">
     <thead>
-      <tr>
+      <tr>        
         <th>Contact Name</th>
         <th>Relationship</th>
         <th>Street</th>
@@ -14,11 +14,12 @@
         <th>Mobile#</th>
         <th>Telephone#</th>
         <th></th>
+        <th></th>        
       </tr>
     </thead>
     <tbody>
       <% @contacts.each do |contact| %>
-       <tr>
+       <tr>      	 
          <td><%= link_to contact.contact_person, customer_contact_path(contact) %></td>
          <td><%= contact.relationship %></td>
          <td><%= contact.street %></td>
@@ -29,6 +30,7 @@
          <td><%= contact.mobile %></td>
          <td><%= contact.telephone %></td>
          <td><%= link_to "Edit", edit_customer_contact_path(contact) %> <%= link_to "Destroy", customer_contact_path(contact), :method  => :delete, :confirm  => 'Are you sure to delete the address record?' %></td>
+         <td><%= link_to "Make Order", new_order_path(:id => contact.id) %> </td>  
          </tr>
      <% end %>
    </tbody>

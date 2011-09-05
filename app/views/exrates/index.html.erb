@@ -27,7 +27,7 @@
          <td><%= exrate.ex_rate_date %></td>
          <td><%= number_to_currency(exrate.sell_rate) %></td>
          <td><%= number_to_currency(exrate.buy_rate) %></td>
-         <td><%= link_to "Show", exrate %> <%= link_to "Edit", edit_exrate_path(exrate) %> <%= link_to "Destroy", exrate, :method  => :delete, :confirm  => 'Are you sure to delete the agent record?' %></td>
+         <td><%= link_to "Edit", edit_exrate_path(exrate) %> <%= link_to "Delete", exrate, :method  => :delete, :confirm  => 'Are you sure to delete the agent record?' %></td>
        </tr>
      <% end %>
    </tbody>

@@ -8,10 +8,11 @@
 
 <%= semantic_form_for @currency do |f| %>
   <%= f.inputs  do %>
-    <%= f.input :name, :label  => "Currency symbol" %>
-    <%= f.input :full_name, :label  => "Currency name" %>
+    <%= f.input :name, :label => 'Currency name' %>
+    <%= f.input :full_name, :label => 'Full name' %>
     <%= f.input :country, :as  => :country, :priority_countries => [ "Brunei Darussalam", "India", "Singapore" ] %>
   <% end -%>
-  <%= f.submit %>
-  <%= link_to "Cancel", currencies_path %>
+  <span class="my_button">
+    <%= f.submit %>
+  </span>
 <% end -%>

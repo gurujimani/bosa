@@ -1,7 +1,7 @@
 <% content_for :sidebar do %>
   <h3>Action Menu</h3>
     <ul class="navigation">
-        <li><%= link_to "Cancel", :back %></li>
+        <li><%= link_to "Cancel", customers_path %></li>
     </ul>
 <% end %>
 <br>
@@ -25,6 +25,8 @@
     <%= f.input :email %>
     <%= f.input :active %>
   <% end -%>
-  <%= f.submit %>
-  <%= link_to "Cancel", :back %>
+  <span class="my_button">
+    <%= f.submit %>
+    <%= link_to "Cancel", customers_path %>
+  </span>
 <% end %>

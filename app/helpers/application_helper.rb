@@ -15,4 +15,19 @@ module ApplicationHelper
     #menu.html_safe
   end
   
+  def commission(amount)
+    @commissions = Commission.active
+    @commissions.each do |commission|
+      if @amount >= commission.from_amount && @amount <= commission.to_amount
+        @result = commission.to_json
+        @result_xml = commission.to_xml
+      end
+    end  
+    
+  end
+  
+  def charge(name)
+    
+  end
+  
 end

@@ -1,4 +1,5 @@
 Bosa::Application.routes.draw do |map|
+
   devise_for :users, :controllers  => {:registrations  => "registrations", :sessions  => "sessions", :passwords  => "passwords"}, :path_names  => { :sign_up  => "register" }
   #resource :users
   
@@ -19,6 +20,8 @@ Bosa::Application.routes.draw do |map|
   end
   
   resources :settings
+  resources :customer_search
+  
   resources :currencies do
     collection do
       get :currentrate
@@ -34,7 +37,11 @@ Bosa::Application.routes.draw do |map|
       post 'walkincreate'
     end
   end
-    
+  
+  resources :purposes
+  resources :income_sources
+  resources :error
+      
   #match "login"  => 'devise/sessions#new'
     
   root :to  => "orders#index"

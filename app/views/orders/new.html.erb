@@ -1,31 +1,29 @@
 <% content_for :sidebar do %>
   <h3>Action Menu</h3>
     <ul class="navigation">
-        <li><%= link_to "Cancel", :back %></li>
+        <li><%= link_to "Cancel", orders_path %></li>
     </ul>
 <% end %>
 <br>
-<h3>Registered Customer - New Order</h3>
+<h3>New Order for : <%= @order.customer.name %></h3><br />
 <%= semantic_form_for @order do |f| %>
   <%= f.inputs do %>
     <%= f.input :date, :as  => :datepicker %>
-    <%= f.input :customer, :as  => :select, :prompt  => "Select a customer" %>
-  <% end -%>
-  <div id="address"></div>
+    <%= f.input :customer_id, :as => :hidden %>
+  <% end -%>  
 
   <div id="details1">
     <%= render :partial => 'details1', :locals  => {:f  => f} %>
   </div>
-  
-  <%= f.submit "Process Order", :remote => true %>  
  
   <div id="details2">
     <br />
     <%= render :partial => 'details2', :locals => {:f => f}%>
   </div>
-  
-  <%= f.submit "Create Order", :remote => true %>
-  <%= link_to "Cancel", :back %>
+  <span class="my_button">
+    <%= f.submit "Create Order", :remote => true %>
+    <%= link_to "Cancel", :back %>
+  </span>
 <% end %>
 
   

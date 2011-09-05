@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100803152528
+# Schema version: 20101208103510
 #
 # Table name: commissions
 #
@@ -11,6 +11,7 @@
 #  remarks     :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  active      :boolean
 #
 
 class Commission < ActiveRecord::Base
@@ -18,4 +19,14 @@ class Commission < ActiveRecord::Base
   validates :to_amount, :presence => true
   validates :commission, :presence => true
   validates :charge, :presence => true
+  
+  scope :active, where("commissions.active = 't'")
+  
+  # def commission(amount)
+  #   
+  # end
+  # 
+  # def charge(amount)
+  #   
+  # end
 end

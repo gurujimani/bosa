@@ -1,0 +1,31 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="navigation">
+        <li><%= link_to "New Purpose", new_purpose_path %></li>
+        <li><%= link_to "Back to Setting", settings_path%></li>
+    </ul>
+<% end %>
+<br>
+
+<% unless @purposes.empty? %>
+  <h1>Purposes </h1>
+  <br>
+  <table id="bosaTable" class="display" border="0" cellspacing="1" cellpadding="0">
+    <thead>  
+	  	<tr>
+	  	  <th>Purpose</th>
+	  	  <th>Notes</th>
+	  	  <th></th>
+	  	<tr>
+	</thead>  	  
+	<tbody>
+		<% @purposes.each do |purpose| %>
+			<tr>
+				<td><%= purpose.name %></td>
+				<td><%= purpose.description %></td>
+				<td> <%= link_to "Edit", edit_purpose_path(purpose) %> <%= link_to "Destroy", purpose, :method  => :delete, :confirm  => 'Are you sure to delete the purpose record?' %>
+			</tr>
+		<% end %>
+	</tbody>
+  </table>		
+<% end %>

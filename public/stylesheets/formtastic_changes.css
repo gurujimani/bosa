@@ -18,7 +18,8 @@ This stylesheet forms part of the Formtastic Rails Plugin
 (c) 2008 Justin French
 
 --------------------------------------------------------------------------------------------------*/
-
+/*My own style*/
+.my_button{float: right; padding: 5px 45% 10px 0}
 
 /* NORMALIZE AND RESET - obviously inspired by Yahoo's reset.css, but scoped to just form.formtastic
 --------------------------------------------------------------------------------------------------*/
@@ -44,9 +45,9 @@ form.formtastic ul.errors li { padding:0; border:none; display:list-item; }*/
 /* FIELDSETS & LISTS
 -------------------------------------------------------------------------------------------------- */
 form.formtastic fieldset { background-color:#fff; }
-/*form.formtastic fieldset.inputs { }
-form.formtastic fieldset.buttons { padding-left:25%; }*/
-form.formtastic fieldset ol { margin: 1em 0 0 1.5em; }
+/*form.formtastic fieldset.inputs { }*/
+form.formtastic fieldset.buttons { padding-right:25%; }*/
+/*form.formtastic fieldset ol { margin: 1em 0 0 1.5em; }
 /*form.formtastic fieldset.buttons li { float:left; padding-right:0.5em; }*/
 
 /* clearfixing the fieldsets 
@@ -72,12 +73,12 @@ form.formtastic fieldset > ol > li.error { }
   
 */
 /* LABELS
---------------------------------------------------------------------------------------------------
-form.formtastic fieldset > ol > li label { display:block; width:25%; float:left; padding-top:.2em; }
-form.formtastic fieldset > ol > li > li label { line-height:100%; padding-top:0; }
+-------------------------------------------------------------------------------------------------- */
+form.formtastic fieldset > ol > li label { display:block; margin: 0 0 0 10px;  }
+/*form.formtastic fieldset > ol > li > li label { line-height:100%; padding-top:0; }
 form.formtastic fieldset > ol > li > li label input { line-height:100%; vertical-align:middle; margin-top:-0.1em;}
-
 */
+
 /* NESTED FIELDSETS AND LEGENDS (radio, check boxes and date/time inputs use nested fieldsets)
 --------------------------------------------------------------------------------------------------
 form.formtastic fieldset > ol > li fieldset { position:relative; }*/

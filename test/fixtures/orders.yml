@@ -1,5 +1,4 @@
 # == Schema Information
-# Schema version: 20100812155350
 #
 # Table name: orders
 #
@@ -26,8 +25,11 @@
 #  agent_id          :integer
 #  commission        :decimal(10, 2)
 #  charge            :integer(10)
+#  remarks           :text
 #  created_at        :datetime
 #  updated_at        :datetime
+#  purpose_id        :integer
+#  income_source_id  :integer
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

@@ -2,7 +2,7 @@ class CommissionsController < ApplicationController
   respond_to :html
   
   def index
-    @commissions = Commission.all
+    @commissions = Commission.order("id")
     if @commissions.empty?
       flash[:error] = "No commission record found"''
     end 
@@ -65,10 +65,12 @@ class CommissionsController < ApplicationController
   def getcommission
     
     @amount = params[:amount].to_f
-    @result = "test"
+    # @result = "test"
     @result_xml = "test"
-    @commissions = Commission.all
+    @commissions = Commission.order("id DESC")
     respond_to do |format|
+      @result = @commissions[0].to_json
+      @result_xml = @commissions[0].to_xml
       @commissions.each do |commission|
         if @amount >= commission.from_amount && @amount <= commission.to_amount
           @result = commission.to_json
@@ -80,5 +82,8 @@ class CommissionsController < ApplicationController
       format.xml { render :xml  => @result_xml } 
     end
   end
-
+  
+  def getcharge
+    
+  end
 end

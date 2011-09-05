@@ -1,0 +1,17 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="navigation">
+        <li><%= link_to "Cancel", income_sources_path %></li>
+    </ul>
+<% end %>
+<br>
+
+<%= semantic_form_for @source do |f| %>
+  <%= f.inputs  do %>
+    <%= f.input :name, :input_html => { :style => "width:25em" } %>
+    <%= f.input :description, :input_html => { :style => "width:30em" } %>
+  <% end -%>
+  <span class="my_button">
+    <%= f.submit %>
+  </span>
+<% end -%>

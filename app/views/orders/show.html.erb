@@ -1,2 +1,16 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="navigation">
+        <li><%= link_to "Edit", edit_order_path(@order) %></li>
+        <li><%= link_to "Back", orders_path %></li>
+    </ul>
+<% end %>
+
+<br>
+<h2>Order Details</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+  <tr><th>Order ID: </th><td><%= @order.id %></td> </tr>
+  <tr><th>Customer Name: </th><td><%= @order.receiver_name %></td> </tr>
+  <tr><th>Country: </th><td><%= @order.country %></td> </tr>
+  <tr><th>Remarks: </th><td><%= @order.remarks %></td> </tr>
+</table>

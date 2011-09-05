@@ -45,7 +45,9 @@
 .paging_full_numbers {
 	width: 350px !important;
 	margin: 0 5px 10px 0;
+	padding: 5px 0 0 0;
 }
+
 
 .fg-toolbar {
 	padding: 5px;
@@ -109,17 +111,20 @@ zoom: 1;
 .dataTables_length {
 	width: 40%;
 	float: left;
+	padding: 0 0 5px 5px;
 }
 
 .dataTables_filter {
 	width: 50%;
 	float: right;
 	text-align: right;
+	padding: 0 5px 0 0;
 }
 
 .dataTables_info {
 	width: 60%;
 	float: left;
+	padding: 5px 0 0 5px;
 }
 
 .dataTables_paginate {

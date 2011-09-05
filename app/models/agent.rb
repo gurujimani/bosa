@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100807152434
+# Schema version: 20101208103510
 #
 # Table name: agents
 #
@@ -14,7 +14,7 @@
 #  telephone  :string(255)     not null
 #  mobile     :string(255)
 #  email      :string(255)
-#  active     :boolean
+#  active     :boolean         default(TRUE)
 #  created_at :datetime
 #  updated_at :datetime
 #

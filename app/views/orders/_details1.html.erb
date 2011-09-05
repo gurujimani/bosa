@@ -4,4 +4,6 @@
       <%= f.input :delivery_currency, :as  => :select, :collection  => Currency.all, :prompt  => "Select a currency" %>
       <%= f.input :amount, :label  => "Payin Amount (BND)", :input_html => { :style => "width:10em" }  %>
       <%= f.input :amount_to_deliver, :label  => "Payout Amount", :input_html => { :style => "width:10em" } %>
+      <%= f.input :purpose_id, :as => :select, :collection => Purpose.all, :prompt => 'Select a purpose'%>
+      <%= f.input :income_source_id, :as => :select, :collection => IncomeSource.all, :prompt => 'Select an income source'%>
     <% end -%>

@@ -52,6 +52,12 @@ function GetCommission(){
         $(data).find("commission").each(function(){
           //$('#order_commission').val
           if(i == 0){
+         //   var tmp;
+          //  tmp = "Commission : " + $("commission", this).text();
+           // alert(tmp);
+            //tmp = "Charge : " + $("charge", this).text();
+            //alert(tmp);
+            
             $('#order_commission').val($("commission", this).text());
             //$('#order_charge').val
             $('#order_charge').val($("charge", this).text());
@@ -136,6 +142,22 @@ $(document).ready(function(){
   });
 });
 
+$(document).ready(function(){
+  $('#order_ex_rate').bind('focusout', function(event){
+    if($.trim(this.value)){
+      if(IsNumeric($.trim(this.value))){
+        CalculateAmount();  
+      }
+      else {
+        alert("Exchange rate is not a valid number. Please reenter the amount.");
+        $('#order_ex_rate').focus();
+      }
+    }
+  });
+});
+
 // $(document).ready(function(){
 //   $("label").inFieldLabels();
 // });
+
+

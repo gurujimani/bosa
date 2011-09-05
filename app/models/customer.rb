@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100807152434
+# Schema version: 20101208103510
 #
 # Table name: customers
 #
@@ -18,6 +18,7 @@
 #  telephone       :string(255)     not null
 #  mobile          :string(255)
 #  email           :string(255)
+#  active          :boolean         default(TRUE)
 #  created_at      :datetime
 #  updated_at      :datetime
 #
@@ -27,6 +28,8 @@ class Customer < ActiveRecord::Base
   has_many :orders
     
   validates_presence_of :name, :message => "can't be blank"
+  validates_presence_of :ic_number, :message  => "can't be blank"
+  validates_presence_of :passport_number, :message  => "can't be blank"
   validates_uniqueness_of :ic_number, :message => 'IC number already registered for another customer.'
   validates_uniqueness_of :passport_number, :message => 'Passport number already registered for another customer.'
   

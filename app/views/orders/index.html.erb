@@ -2,13 +2,38 @@
   <h3>Action Menu</h3>
     <ul class="navigation">
         <li><%= link_to "New Order - Walk-In Customer", walkin_orders_path %></li>
-        <li><%= link_to "New Order - Registered Customer", new_order_path %></li>
+        <li><%= link_to "New Order - Registered Customer", { :action => 'index', :controller => 'customer_search' } %></li>
     </ul>
 <% end %>
 <br>
 
-<% if !@orders.empty? %>
-  <%= table_for (@orders) do |t|
-    t.data
-    end %>
-<% end -%>
+<% unless @orders.empty? %>
+  <h1>Orders </h1>
+  <br>
+  <table id="bosaTable" class="display" border="0" cellspacing="1" cellpadding="0">
+    <thead>  
+	  	<tr>
+	  	  <th>Order ID</th>
+	  	  <th>Date</th>
+	  	  <th>Customer</th>
+	  	  <th>Receiver Name</th>
+	  	  <th>City</th>
+	  	  <th>Payout Amount</th>
+	  	  <th>Status</th>
+	  	<tr>
+	</thead>  	  
+	<tbody>
+		<% @orders.each do |order| %>
+			<tr>
+				<td><%= link_to order.id, order %></td>
+				<td><%= order.date %></td>
+				<td><%= order.customer.name %></td>
+				<td><%= order.receiver_name %></td>
+				<td><%= order.city %></td>
+				<td><%= order.delivery_currency + ' ' + order.amount_to_deliver.to_s %></td>
+				<td><%= order.delivery_status ? 'Delivered' : 'In Progress'%></td>
+			</tr>
+		<% end %>
+	</tbody>
+  </table>		
+<% end %>

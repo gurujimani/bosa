@@ -1,5 +1,4 @@
 # == Schema Information
-# Schema version: 20100930135636
 #
 # Table name: orders
 #
@@ -26,12 +25,25 @@
 #  agent_id          :integer
 #  commission        :decimal(10, 2)
 #  charge            :integer(10)
+#  remarks           :text
 #  created_at        :datetime
 #  updated_at        :datetime
+#  purpose_id        :integer
+#  income_source_id  :integer
 #
 
 class Order < ActiveRecord::Base
+  
+  attr_accessor :total_amount
+  
   belongs_to :customer
+  belongs_to :purpose
+  belongs_to :income_source
+  belongs_to :agent
+  
+  has_many :proxy_orders
+  
+  #before_save :make_proxy_orders
   
   validates :date, :presence  => true
   validates :time, :presence  => true
@@ -43,5 +55,27 @@ class Order < ActiveRecord::Base
   validates :amount, :presence  => true, :numericality  => true
   validates :amount_to_deliver, :presence  => true, :numericality  => true
   validates :delivery_currency, :presence  => true
+  validates :purpose_id, :presence => true
   
+  def total_amount
+    amount + commission + charge
+  end
+  
+  private
+  
+  def make_proxy_orders
+    config = Setting.first
+    
+    if self.amount > config.base_currency_order_limit
+      amt = self.amount
+      
+      until amt < config.base_currency_order_list
+        
+      end
+         
+      self.remarks = "Proxy order should be created for this order."
+    end
+    
+    config = nil
+  end
 end

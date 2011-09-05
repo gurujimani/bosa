@@ -1,0 +1,31 @@
+<% content_for :sidebar do %>
+  <h3>Action Menu</h3>
+    <ul class="navigation">
+        <li><%= link_to "New Income Source", new_income_source_path %></li>
+        <li><%= link_to "Back to Setting", settings_path%></li>
+    </ul>
+<% end %>
+<br>
+
+<% unless @sources.empty? %>
+  <h1>Income Sources</h1>
+  <br>
+  <table id="bosaTable" class="display" border="0" cellspacing="1" cellpadding="0">
+    <thead>  
+	  	<tr>
+	  	  <th>Income Source</th>
+	  	  <th>Notes</th>
+	  	  <th></th>
+	  	<tr>
+	</thead>  	  
+	<tbody>
+		<% @sources.each do |source| %>
+			<tr>
+				<td><%= source.name %></td>
+				<td><%= source.description %></td>
+				<td> <%= link_to "Edit", edit_income_source_path(source) %> <%= link_to "Destroy", source, :method  => :delete, :confirm  => 'Are you sure to delete the income source record?' %>
+			</tr>
+		<% end %>
+	</tbody>
+  </table>		
+<% end %>

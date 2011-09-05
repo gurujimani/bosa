@@ -1,0 +1,10 @@
+
+<h3 style="padding: 0 0 0 35%">Enter a customer ID to search: </h3>
+<br />
+<div >
+<%= form_for :search do |f| %>
+  <span style="padding: 0 0 0 35%"><%= f.text_field :id %></span><br /><br />
+  <span style="padding: 0 0 0 45%"><%= f.submit "Search"%></span>
+<% end %>
+</div>
+<br />

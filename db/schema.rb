@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100930135636) do
+ActiveRecord::Schema.define(:version => 20110829150623) do
 
   create_table "agents", :force => true do |t|
     t.string   "name",                         :null => false
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20100930135636) do
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
   create_table "contacts", :force => true do |t|
@@ -94,37 +96,86 @@ ActiveRecord::Schema.define(:version => 20100930135636) do
     t.datetime "updated_at"
   end
 
+  create_table "income_sources", :force => true do |t|
+    t.string   "name",        :null => false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", :force => true do |t|
-    t.date     "date",                                             :null => false
-    t.time     "time",                                             :null => false
-    t.integer  "customer_id",                                      :null => false
-    t.string   "receiver_name",                                    :null => false
-    t.string   "street",                                           :null => false
-    t.string   "city",                                             :null => false
+    t.date     "date",                            :null => false
+    t.time     "time",                            :null => false
+    t.integer  "customer_id",                     :null => false
+    t.string   "receiver_name",                   :null => false
+    t.string   "street",                          :null => false
+    t.string   "city",                            :null => false
     t.string   "postcode"
     t.string   "district"
     t.string   "state"
-    t.string   "country",                                          :null => false
+    t.string   "country",                         :null => false
     t.string   "telephone"
     t.string   "mobile_phone"
     t.string   "email"
+    t.decimal  "amount",                          :null => false
+    t.decimal  "amount_to_deliver",               :null => false
+    t.string   "delivery_currency",               :null => false
+    t.decimal  "ex_rate",                         :null => false
+    t.string   "delivery_status"
+    t.datetime "delivered_on"
+    t.integer  "agent_id"
+    t.decimal  "commission"
+    t.integer  "charge",            :limit => 10
+    t.text     "remarks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "purpose_id"
+    t.integer  "income_source_id"
+  end
+
+  create_table "proxy_addresses", :force => true do |t|
+    t.string   "customer",        :null => false
+    t.string   "icno"
+    t.string   "passport"
+    t.string   "customer_mobile"
+    t.string   "receiver_name",   :null => false
+    t.string   "street",          :null => false
+    t.string   "city",            :null => false
+    t.string   "postcode"
+    t.string   "district"
+    t.string   "state"
+    t.string   "country",         :null => false
+    t.string   "telephone"
+    t.string   "mobile_phone"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "proxy_orders", :force => true do |t|
+    t.integer  "order_id",                                         :null => false
+    t.integer  "proxy_address_id",                                 :null => false
+    t.date     "date",                                             :null => false
     t.decimal  "amount",            :precision => 10, :scale => 2, :null => false
     t.decimal  "amount_to_deliver", :precision => 10, :scale => 2, :null => false
     t.string   "delivery_currency",                                :null => false
     t.decimal  "ex_rate",           :precision => 10, :scale => 2, :null => false
-    t.string   "delivery_status"
-    t.datetime "delivered_on"
-    t.integer  "agent_id"
     t.decimal  "commission",        :precision => 10, :scale => 2
     t.decimal  "charge",            :precision => 10, :scale => 0
-    t.text     "remarks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purposes", :force => true do |t|
+    t.string   "name",        :null => false
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "settings", :force => true do |t|
-    t.string   "company_name",        :null => false
-    t.string   "street",              :null => false
+    t.string   "company_name",                                             :null => false
+    t.string   "street",                                                   :null => false
     t.string   "city"
     t.string   "postcode"
     t.string   "country"
@@ -133,8 +184,16 @@ ActiveRecord::Schema.define(:version => 20100930135636) do
     t.string   "email"
     t.string   "website"
     t.string   "business_license_no"
-    t.string   "base_currency",       :null => false
+    t.string   "base_currency",                                            :null => false
     t.string   "base_currency_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "base_currency_order_limit", :precision => 10, :scale => 2
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.string   "name",        :null => false
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -6,7 +6,7 @@
 <% end %>
 <br>
 <h3>Walk-In Customer - New Order</h3>
-<%= semantic_form_for :order, @order, :url  => { :action  => "walkincreate" } do |f| %>
+<%= semantic_form_for @order, :as  => :order, :url  => { :action  => "walkincreate" } do |f| %>
   <%= f.inputs  do %>
     <%= f.input :date, :as  => :datepicker %>
   <% end -%>
@@ -18,7 +18,8 @@
     <br />
     <%= render :partial => 'details2', :locals => {:f => f}%>
   </div>
-  
-  <%= f.submit "Create Order", :remote => true %>
-  <%= link_to "Cancel", :back %>
+  <span class="my_button">
+  	<%= f.submit "Create Order", :remote => true %>
+  	<%= link_to "Cancel", :back %>
+  </span>
 <% end %>

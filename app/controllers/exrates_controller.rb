@@ -40,7 +40,7 @@ class ExratesController < ApplicationController
     @exrate = Exrate.find(params[:id])
     
     flash[:notice] = "Exchange rate details successfully updated..." if @exrate.update_attributes(params[:exrate])
-    respond_with(@exrate)
+    redirect_to exrates_path
   end
 
   def destroy
